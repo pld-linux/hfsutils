@@ -2,7 +2,7 @@ Summary:	HFS volume utils
 Summary(pl):	Narzêdzia do woluminów HFS
 Name:		hfsutils
 Version:	3.2.6
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.mars.org/pub/hfs/%{name}-%{version}.tar.gz
