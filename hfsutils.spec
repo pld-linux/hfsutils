@@ -25,20 +25,20 @@ Narzêdzia do woluminów HFS.
 
 %build
 %{__libtoolize}
-aclocal
+%{__aclocal}
 %{__autoconf}
-autoheader
+%{__autoheader}
 
 cd libhfs
-aclocal 
+%{__aclocal} 
 %{__autoconf}
-autoheader
+%{__autoheader}
 cd ..
 
 cd librsrc
-aclocal
+%{__aclocal}
 %{__autoconf}
-autoheader
+%{__autoheader}
 cd ..
 
 %configure
