@@ -26,18 +26,18 @@ Narzêdzia do woluminów HFS.
 %build
 libtoolize --copy --force
 aclocal
-autoconf
+%{__autoconf}
 autoheader
 
 cd libhfs
 aclocal 
-autoconf
+%{__autoconf}
 autoheader
 cd ..
 
 cd librsrc
 aclocal
-autoconf
+%{__autoconf}
 autoheader
 cd ..
 
