@@ -28,8 +28,18 @@ libtoolize --copy --force
 aclocal
 autoconf
 autoheader
-(cd libhfs ; aclocal ; autoconf ; autoheader )
-(cd librsrc ; aclocal ; autoconf ; autoheader )
+
+cd libhfs
+aclocal 
+autoconf
+autoheader
+cd ..
+
+cd librsrc
+aclocal
+autoconf
+autoheader
+cd ..
 
 %configure
 %{__make}
