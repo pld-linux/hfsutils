@@ -2,11 +2,12 @@ Summary:	HFS volume utils
 Summary(pl):	Narzêdzia do woluminów HFS
 Name:		hfsutils
 Version:	3.2.6
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.mars.org/pub/hfs/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
+Patch1:		%{name}-ac.patch
 URL:		http://www.mars.org/home/rob/proj/hfs/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -22,6 +23,7 @@ Narzêdzia do woluminów HFS.
 %prep
 %setup  -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
