@@ -1,41 +1,27 @@
 Summary:	HFS volume utils 
-Summary(de):	-
-Summary(fr):	-
 Summary(pl):	Narzêdzia do woluminów HFS
-Summary(tr):	-
 Name:		hfsutils
 Version:	3.2.6
 Release:	1
 License:	GPL
 Group:		Applications/System
 Group(de):	Applikationen/System
-Group(fr):	-
 Group(pl):	Aplikacje/System
-Group(tr):	-
-Vendor:         -
-#Serial:		-
-#Icon:		-
 Source0:	ftp://ftp.mars.org/pub/hfs/%{name}-%{version}.tar.gz
-#Source1:	-
-#Source2:	-
 Patch0:		%{name}.DESTDIR_1.patch
 Patch1:		%{name}.DESTDIR_2.patch
 Patch2:		%{name}.DESTDIR_3.patch
 URL:		http://www.mars.org/home/rob/proj/hfs/
-#BuildPrereq:	-
-#Requires:	-
-#Prereq:		-
+BuildRequires:	libtool
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-
-%description -l de
-
-%description -l fr
+HFS volume utils.
 
 %description -l pl
-
-%description -l tr
+Narzêdzia do woluminów HFS.
 
 %prep
 %setup  -q
@@ -57,14 +43,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 gzip -9nf BLURB CREDITS INSTALL README ChangeLog 
-
-%pre
-
-%preun
-
-%post
-
-%postun
 
 %clean
 rm -rf $RPM_BUILD_ROOT
