@@ -49,13 +49,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf BLURB CREDITS README CHANGES TODO doc/charset.txt
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz doc/*.gz
+%doc BLURB CREDITS README CHANGES TODO doc/charset.txt
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man?/*
