@@ -1,12 +1,13 @@
 diff -uNr hfsutils-3.2.6.orig/Makefile.in hfsutils-3.2.6/Makefile.in
 --- hfsutils-3.2.6.orig/Makefile.in	Mon Aug 31 20:40:14 1998
-+++ hfsutils-3.2.6/Makefile.in	Tue Mar  5 22:02:32 2002
++++ hfsutils-3.2.6/Makefile.in	Tue Mar  5 22:17:04 2002
 @@ -111,48 +111,47 @@
  install :: @INSTALL_TARGETS@
  
  install_cli :: all_cli
-+	$(INSTALL) -d $(DESTDIR)$(BINDEST) $(DESTDIR)/$(MANDEST)/man1
- 	$(BININSTALL) $(HFSUTIL) "$(BINDEST)/."
+-	$(BININSTALL) $(HFSUTIL) "$(BINDEST)/."
++	$(INSTALL) -d $(DESTDIR)/$(BINDEST) $(DESTDIR)/$(MANDEST)/man1
++	$(BININSTALL) $(HFSUTIL) "$(DESTDIR)/$(BINDEST)/."
  
  	for file in $(CLITARGETS); do  \
 -		$(HARDLINK) "$(BINDEST)/$(HFSUTIL)" "$(BINDEST)/$$file";  \
@@ -65,7 +66,7 @@ diff -uNr hfsutils-3.2.6.orig/Makefile.in hfsutils-3.2.6/Makefile.in
  
 diff -uNr hfsutils-3.2.6.orig/libhfs/Makefile.in hfsutils-3.2.6/libhfs/Makefile.in
 --- hfsutils-3.2.6.orig/libhfs/Makefile.in	Mon Nov  2 23:08:51 1998
-+++ hfsutils-3.2.6/libhfs/Makefile.in	Tue Mar  5 22:05:27 2002
++++ hfsutils-3.2.6/libhfs/Makefile.in	Tue Mar  5 22:14:02 2002
 @@ -72,8 +72,9 @@
  	@echo "No self-tests available."
  
@@ -80,7 +81,7 @@ diff -uNr hfsutils-3.2.6.orig/libhfs/Makefile.in hfsutils-3.2.6/libhfs/Makefile.
  
 diff -uNr hfsutils-3.2.6.orig/librsrc/Makefile.in hfsutils-3.2.6/librsrc/Makefile.in
 --- hfsutils-3.2.6.orig/librsrc/Makefile.in	Sun Apr 12 03:33:26 1998
-+++ hfsutils-3.2.6/librsrc/Makefile.in	Tue Mar  5 22:04:36 2002
++++ hfsutils-3.2.6/librsrc/Makefile.in	Tue Mar  5 22:14:02 2002
 @@ -68,8 +68,9 @@
  	@echo "No self-tests available."
  
