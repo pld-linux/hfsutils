@@ -6,9 +6,7 @@ Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.mars.org/pub/hfs/%{name}-%{version}.tar.gz
-Patch0:		%{name}.DESTDIR_1.patch
-Patch1:		%{name}.DESTDIR_2.patch
-Patch2:		%{name}.DESTDIR_3.patch
+Patch0:		%{name}-DESTDIR.patch
 URL:		http://www.mars.org/home/rob/proj/hfs/
 BuildRequires:	libtool
 BuildRequires:	autoconf
@@ -23,15 +21,16 @@ Narzêdzia do woluminów HFS.
 
 %prep
 %setup  -q
-%patch0 -p0
-%patch1 -p0
-%patch2 -p0
+%patch0 -p1
 
 %build
 libtoolize --copy --force
 aclocal
 autoconf
-automake -a -c
+autoheader
+(cd libhfs ; aclocal ; autoconf ; autoheader )
+(cd librsrc ; aclocal ; autoconf ; autoheader )
+
 %configure
 %{__make}
 
@@ -40,10 +39,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf BLURB CREDITS INSTALL README ChangeLog
+gzip -9nf BLURB CREDITS README CHANGES TODO doc/charset.txt
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc *.gz doc/*.gz
+%attr(755,root,root) %{_bindir}/*
+%{_mandir}/man?/*
