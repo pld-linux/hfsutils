@@ -5,8 +5,6 @@ Version:	3.2.6
 Release:	1
 License:	GPL
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Source0:	ftp://ftp.mars.org/pub/hfs/%{name}-%{version}.tar.gz
 Patch0:		%{name}.DESTDIR_1.patch
 Patch1:		%{name}.DESTDIR_2.patch
