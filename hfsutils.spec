@@ -33,7 +33,7 @@ Narzêdzia do woluminów HFS.
 %{__autoheader}
 
 cd libhfs
-%{__aclocal} 
+%{__aclocal}
 %{__autoconf}
 %{__autoheader}
 cd ..
