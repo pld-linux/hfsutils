@@ -7,10 +7,10 @@ Name:		hfsutils
 Version:	3.2.6
 Release:	1
 License:	GPL
-Group:		-
-Group(de):	-
+Group:		Applications/System
+Group(de):	Applikationen/System
 Group(fr):	-
-Group(pl):	-
+Group(pl):	Aplikacje/System
 Group(tr):	-
 Vendor:         -
 #Serial:		-
