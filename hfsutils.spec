@@ -6,6 +6,7 @@ Release:	2
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.mars.org/pub/hfs/%{name}-%{version}.tar.gz
+# Source0-md5:	fa572afd6da969e25c1455f728750ec4
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-ac.patch
 URL:		http://www.mars.org/home/rob/proj/hfs/
