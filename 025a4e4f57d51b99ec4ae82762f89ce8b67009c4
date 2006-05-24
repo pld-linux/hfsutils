@@ -1,0 +1,3 @@
+- initial PLD release
+- this is needed for accessing HFS volumies(MacOS), and creating bootable
+  cds for Macs
