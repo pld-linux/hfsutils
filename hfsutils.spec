@@ -1,3 +1,5 @@
+# TODO
+# - move progs to sbindir like other mkfs tools
 Summary:	HFS volume utils
 Summary(pl):	Narzêdzia do woluminów HFS
 Name:		hfsutils
