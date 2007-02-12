@@ -1,7 +1,7 @@
 # TODO
 # - move progs to sbindir like other mkfs tools
 Summary:	HFS volume utils
-Summary(pl):	Narzêdzia do woluminów HFS
+Summary(pl.UTF-8):   NarzÄ™dzia do woluminÃ³w HFS
 Name:		hfsutils
 Version:	3.2.6
 Release:	3
@@ -20,8 +20,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 HFS volume utils.
 
-%description -l pl
-Narzêdzia do woluminów HFS.
+%description -l pl.UTF-8
+NarzÄ™dzia do woluminÃ³w HFS.
 
 %prep
 %setup  -q
