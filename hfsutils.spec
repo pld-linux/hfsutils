@@ -4,8 +4,8 @@ Summary:	HFS volume utils
 Summary(pl.UTF-8):	Narzędzia do woluminów HFS
 Name:		hfsutils
 Version:	3.2.6
-Release:	3
-License:	GPL
+Release:	4
+License:	GPL v2+
 Group:		Applications/System
 Source0:	ftp://ftp.mars.org/pub/hfs/%{name}-%{version}.tar.gz
 # Source0-md5:	fa572afd6da969e25c1455f728750ec4
@@ -14,7 +14,7 @@ Patch1:		%{name}-ac.patch
 Patch2:		%{name}-errno.patch
 Patch3:		%{name}-include-c99.patch
 Patch4:		%{name}-largefile.patch
-URL:		http://www.mars.org/home/rob/proj/hfs/
+URL:		https://www.mars.org/home/rob/proj/hfs/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -94,13 +94,18 @@ CFLAGS="%{rpmcflags} -D_FILE_OFFSET_BITS=64 -DUSE_INTERP_RESULT"
 	--enable-devlibs \
 	--with-tcl \
 	--with-tk
-%{__make} -j1
+%{__make}
+
+%{__make} hfsck/hfsck
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} -j1 install \
+%{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install hfsck/hfsck $RPM_BUILD_ROOT%{_bindir}
+ln -sf hfsck $RPM_BUILD_ROOT%{_bindir}/fsck.hfs
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -108,12 +113,14 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc BLURB CREDITS README CHANGES TODO doc/charset.txt
+%attr(755,root,root) %{_bindir}/fsck.hfs
 %attr(755,root,root) %{_bindir}/hattrib
 %attr(755,root,root) %{_bindir}/hcd
 %attr(755,root,root) %{_bindir}/hcopy
 %attr(755,root,root) %{_bindir}/hdel
 %attr(755,root,root) %{_bindir}/hdir
 %attr(755,root,root) %{_bindir}/hformat
+%attr(755,root,root) %{_bindir}/hfsck
 %attr(755,root,root) %{_bindir}/hfsutil
 %attr(755,root,root) %{_bindir}/hls
 %attr(755,root,root) %{_bindir}/hmkdir
