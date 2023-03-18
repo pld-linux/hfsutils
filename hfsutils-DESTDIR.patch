@@ -6,12 +6,12 @@ diff -uNr hfsutils-3.2.6.orig/Makefile.in hfsutils-3.2.6/Makefile.in
  
  install_cli :: all_cli
 -	$(BININSTALL) $(HFSUTIL) "$(BINDEST)/."
-+	$(INSTALL) -d $(DESTDIR)/$(BINDEST) $(DESTDIR)/$(MANDEST)/man1
-+	$(BININSTALL) $(HFSUTIL) "$(DESTDIR)/$(BINDEST)/."
++	$(INSTALL) -d $(DESTDIR)$(BINDEST) $(DESTDIR)$(MANDEST)/man1
++	$(BININSTALL) $(HFSUTIL) "$(DESTDIR)$(BINDEST)/."
  
  	for file in $(CLITARGETS); do  \
 -		$(HARDLINK) "$(BINDEST)/$(HFSUTIL)" "$(BINDEST)/$$file";  \
-+		$(HARDLINK) "$(HFSUTIL)" "$(DESTDIR)/$(BINDEST)/$$file";  \
++		$(HARDLINK) "$(HFSUTIL)" "$(DESTDIR)$(BINDEST)/$$file";  \
  	done
  
 -	rm -f "$(BINDEST)/$(HFSUTIL)"
@@ -23,9 +23,10 @@ diff -uNr hfsutils-3.2.6.orig/Makefile.in hfsutils-3.2.6/Makefile.in
  	done
  
  install_tcl :: all_tcl
-+	$(INSTALL) -d $(DESTDIR)$(BINDEST) $(DESTDIR)/$(MANDEST)/man1
++	$(INSTALL) -d $(DESTDIR)$(BINDEST) $(DESTDIR)$(MANDEST)/man1
  	for file in $(TCLTARGETS); do  \
- 		$(BININSTALL) $$file "$(BINDEST)/.";  \
+-		$(BININSTALL) $$file "$(BINDEST)/.";  \
++		$(BININSTALL) $$file "$(DESTDIR)$(BINDEST)/.";  \
  	done
  
 -	if [ -f "$(BINDEST)/hfs" ]; then  \
@@ -33,27 +34,27 @@ diff -uNr hfsutils-3.2.6.orig/Makefile.in hfsutils-3.2.6/Makefile.in
 -		$(BININSTALL) "$(BINDEST)/hfs.new" "$(BINDEST)/hfs";  \
 -		rm -f "$(BINDEST)/hfs.new";  \
 -	fi
-+	sed -e '1d' "$(DESTDIR)/$(BINDEST)/hfs" > "$(DESTDIR)/$(BINDEST)/hfs.new"
-+	$(BININSTALL) "$(DESTDIR)/$(BINDEST)/hfs.new" "$(DESTDIR)/$(BINDEST)/hfs"
-+	rm -f "$(DESTDIR)/$(BINDEST)/hfs.new"
++	sed -e '1d' "$(DESTDIR)$(BINDEST)/hfs" > "$(DESTDIR)$(BINDEST)/hfs.new"
++	$(BININSTALL) "$(DESTDIR)$(BINDEST)/hfs.new" "$(DESTDIR)$(BINDEST)/hfs"
++	rm -f "$(DESTDIR)$(BINDEST)/hfs.new"
  
  	for file in $(TCLDOCS); do  \
  		$(LIBINSTALL) doc/man/$$file  \
 -		"$(MANDEST)/man$(MANEXT)/`basename $$file .1`.$(MANEXT)";  \
-+		"$(DESTDIR)/$(MANDEST)/man$(MANEXT)/`basename $$file .1`.$(MANEXT)";  \
++		"$(DESTDIR)$(MANDEST)/man$(MANEXT)/`basename $$file .1`.$(MANEXT)";  \
  	done
  
  install_tk :: all_tk
-+	$(INSTALL) -d $(DESTDIR)$(BINDEST) $(DESTDIR)/$(MANDEST)/man1
++	$(INSTALL) -d $(DESTDIR)$(BINDEST) $(DESTDIR)$(MANDEST)/man1
  	for file in $(TKTARGETS); do  \
 -		$(BININSTALL) $$file "$(BINDEST)/.";  \
-+		$(BININSTALL) $$file "$(DESTDIR)/$(BINDEST)/.";  \
++		$(BININSTALL) $$file "$(DESTDIR)$(BINDEST)/.";  \
  	done
  
  	for file in $(TKDOCS); do  \
  		$(LIBINSTALL) doc/man/$$file  \
 -		"$(MANDEST)/man$(MANEXT)/`basename $$file .1`.$(MANEXT)";  \
-+		"$(DESTDIR)/$(MANDEST)/man$(MANEXT)/`basename $$file .1`.$(MANEXT)";  \
++		"$(DESTDIR)$(MANDEST)/man$(MANEXT)/`basename $$file .1`.$(MANEXT)";  \
  	done
  
  install_lib :: all_lib
@@ -73,9 +74,9 @@ diff -uNr hfsutils-3.2.6.orig/libhfs/Makefile.in hfsutils-3.2.6/libhfs/Makefile.
  install ::
 -	$(LIBINSTALL) libhfs.a "$(LIBDEST)/."
 -	$(LIBINSTALL) hfs.h "$(INCDEST)/."
-+	$(INSTALL) -d $(DESTDIR)/$(LIBDEST)
-+	$(LIBINSTALL) libhfs.a "$(DESTDIR)/$(LIBDEST)/."
-+	$(LIBINSTALL) hfs.h "$(DESTDIR)/$(INCDEST)/."
++	$(INSTALL) -d $(DESTDIR)/$(LIBDEST) $(DESTDIR)$(INCDEST)
++	$(LIBINSTALL) libhfs.a "$(DESTDIR)$(LIBDEST)"
++	$(LIBINSTALL) hfs.h "$(DESTDIR)$(INCDEST)"
  
  again :: clean all
  
@@ -89,8 +90,8 @@ diff -uNr hfsutils-3.2.6.orig/librsrc/Makefile.in hfsutils-3.2.6/librsrc/Makefil
 -	$(LIBINSTALL) librsrc.a "$(LIBDEST)/."
 -	$(LIBINSTALL) rsrc.h "$(INCDEST)/."
 +	$(INSTALL) -d $(DESTDIR)/$(LIBDEST) $(DESTDIR)/$(INCDEST)
-+	$(LIBINSTALL) librsrc.a "$(DESTDIE)/$(LIBDEST)/."
-+	$(LIBINSTALL) rsrc.h "$(DESTDIR)/$(INCDEST)/."
++	$(LIBINSTALL) librsrc.a "$(DESTDIR)$(LIBDEST)"
++	$(LIBINSTALL) rsrc.h "$(DESTDIR)$(INCDEST)"
  
  again :: clean all
  

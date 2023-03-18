@@ -1,0 +1,17 @@
+Add missing include of string.h.
+https://bugzilla.redhat.com/show_bug.cgi?id=2159947
+
+https://fedoraproject.org/wiki/Toolchain/PortingToModernC
+
+diff --git a/hpwd.c b/hpwd.c
+index cd3b100..84c34cf 100644
+--- a/hpwd.c
++++ b/hpwd.c
+@@ -24,6 +24,7 @@
+ # endif
+ 
+ # include <stdio.h>
++# include <string.h>
+ 
+ # include "hfs.h"
+ # include "hcwd.h"

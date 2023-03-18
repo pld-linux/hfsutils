@@ -1,12 +1,11 @@
 diff -Naur hfsutils-3.2.6.orig/librsrc/configure.in hfsutils-3.2.6/librsrc/configure.in
 --- hfsutils-3.2.6.orig/librsrc/configure.in	Sat Apr 11 10:27:18 1998
 +++ hfsutils-3.2.6/librsrc/configure.in	Thu Apr 10 16:58:06 2003
-@@ -54,7 +54,7 @@
+@@ -54,7 +54,6 @@
  
  dnl Checks for library functions.
  
 -AC_SUBST(LIBOBJS)
-+AC_LIBOBJ
  AC_CHECK_FUNCS(mktime)
  
  dnl Create output files.
